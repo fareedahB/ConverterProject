@@ -38,4 +38,4 @@ https://github.com/fareedahb/ConverterProject.git
 7. You can repeat the process for different conversions.
 
 ## Screenshots
-![Alt text](unit_converter-1.png)
+![Alt text](unit_converter.png)
