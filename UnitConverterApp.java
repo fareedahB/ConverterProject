@@ -56,9 +56,8 @@ public class UnitConverterApp {
             double result = 0.0;
 
             if (fromUnit.equals(toUnit)) {
-                result = inputValue; // No conversion needed if the units are the same.
-            } else {
-                // Implementation of conversion logic for the different units.
+                result = inputValue; 
+            } else { 
                 switch (fromUnit + "-" + toUnit) {
                     case "Celsius-Fahrenheit":
                         result = (inputValue * 9 / 5) + 32;
