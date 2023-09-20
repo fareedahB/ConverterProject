@@ -14,8 +14,8 @@ Unit Converter is a Java-based application that allows users to convert various 
 
 To get started with the Unit Converter, follow these steps:
 
-1. Clone the repository to your local machine:
-
+1. Clone the repository to your local machine: https://github.com/fareedahb/ConverterProject.git
+   
 3. Open the project in your preferred Java development environment (e.g., Eclipse, IntelliJ IDEA).
 
 4. Build and run the application.
