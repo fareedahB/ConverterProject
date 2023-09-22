@@ -23,10 +23,12 @@ public class UnitConverterApp {
         panel.setLayout(new FlowLayout());
 
         inputField = new JTextField(10);
-        fromUnitComboBox = new JComboBox<>(new String[] { "Celsius", "Fahrenheit", "Kilogram", "Gram", "Meter", "Feet",
-                "Kg/m³", "lb/ft³", "m/s", "Km/hr" });
-        toUnitComboBox = new JComboBox<>(new String[] { "Celsius", "Fahrenheit", "Kilogram", "Gram", "Meter", "Feet",
-                "Kg/m³", "lb/ft³", "m/s", "Km/hr" });
+        fromUnitComboBox = new JComboBox<>(
+                new String[] { "Celsius", "Fahrenheit", "Kelvin", "Kilogram", "Gram", "Meter", "Feet", "Inch", "g/cm³",
+                        "Kg/m³", "lb/ft³", "m/s", "Km/hr", "mph" });
+        toUnitComboBox = new JComboBox<>(
+                new String[] { "Celsius", "Fahrenheit", "Kelvin", "Kilogram", "Gram", "Meter", "Feet", "Inch", "g/cm³",
+                        "Kg/m³", "lb/ft³", "m/s", "Km/hr", "mph" });
         convertButton = new JButton("Convert");
         resultLabel = new JLabel("");
 
@@ -56,14 +58,26 @@ public class UnitConverterApp {
             double result = 0.0;
 
             if (fromUnit.equals(toUnit)) {
-                result = inputValue; 
-            } else { 
+                result = inputValue;
+            } else {
                 switch (fromUnit + "-" + toUnit) {
                     case "Celsius-Fahrenheit":
-                        result = (inputValue * 9 / 5) + 32;
+                        result = (inputValue * 1.8) + 32;
                         break;
                     case "Fahrenheit-Celsius":
-                        result = (inputValue - 32) * 5 / 9;
+                        result = (inputValue - 32) * 1.8;
+                        break;
+                    case "Celsius-Kelvin":
+                        result = inputValue + 273.15;
+                        break;
+                    case "Kelvin-Celsius":
+                        result = inputValue - 273.15;
+                        break;
+                    case "Fahrenheit-Kelvin":
+                        result = (inputValue - 32) / 1.8 + 273.15;
+                        break;
+                    case "Kelvin-Fahrenheit":
+                        result = (inputValue - 273.15) * 1.8 + 32;
                         break;
                     case "Kilogram-Gram":
                         result = inputValue * 1000;
@@ -77,17 +91,53 @@ public class UnitConverterApp {
                     case "Feet-Meter":
                         result = inputValue / 3.28084;
                         break;
+                    case "Meter-Inch":
+                        result = inputValue * 39.3700787;
+                        break;
+                    case "Inch-Meter":
+                        result = inputValue / 39.3700787;
+                        break;
+                    case "Feet-Inch":
+                        result = inputValue * 12;
+                        break;
+                    case "Inch-Feet":
+                        result = inputValue / 12;
+                        break;
                     case "Kg/m³-lb/ft³":
                         result = inputValue * 0.06243;
                         break;
                     case "lb/ft³-Kg/m³":
                         result = inputValue / 0.06243;
                         break;
+                    case "Kg/m³-g/cm³":
+                        result = inputValue / 1000;
+                        break;
+                    case "g/cm³-Kg/m³":
+                        result = inputValue * 1000;
+                        break;
+                    case "lb/ft³-g/cm³":
+                        result = inputValue * 0.0160184634;
+                        break;
+                    case "g/cm³-lb/ft³":
+                        result = inputValue / 0.0160184634;
+                        break;
                     case "m/s-Km/hr":
                         result = inputValue * 3.6;
                         break;
                     case "Km/hr-m/s":
                         result = inputValue / 3.6;
+                        break;
+                    case "m/s-mph":
+                        result = inputValue * 2.23693629;
+                        break;
+                    case "mph-m/s":
+                        result = inputValue / 2.23693629;
+                        break;
+                    case "Km/hr-mph":
+                        result = inputValue / 1.609344;
+                        break;
+                    case "mph-Km/hr":
+                        result = inputValue * 1.609344;
                         break;
                 }
             }
