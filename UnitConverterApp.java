@@ -20,7 +20,7 @@ public class UnitConverterApp {
         frame.setSize(400, 200);
 
         panel = new JPanel();
-        panel.setLayout(new FlowLayout());
+        panel.setLayout(new FlowLayout(FlowLayout.LEFT));
 
         inputField = new JTextField(10);
         fromUnitComboBox = new JComboBox<>(
