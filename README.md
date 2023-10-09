@@ -27,17 +27,17 @@ https://github.com/fareedahb/ConverterProject.git
 
 2. Enter the value you want to convert in the input field.
 
-4. Select the quantity  of the value you want to convert in the dropdown. 
+3. Select the quantity  of the value you want to convert in the dropdown. 
 
-3. Select the unit you want to convert from in the "From" dropdown.
+4. Select the unit you want to convert from in the "From" dropdown.
 
-4. Select the unit you want to convert to in the "To" dropdown.
+5. Select the unit you want to convert to in the "To" dropdown.
 
-5. Click the "Convert" button.
+6. Click the "Convert" button.
 
-6. The converted value will be displayed in the result area.
+7. The converted value will be displayed in the result area.
 
-7. You can repeat the process for different conversions.
+8. You can repeat the process for different conversions.
 
 ## Screenshots
 ![Alt text](unit_converter.png)
