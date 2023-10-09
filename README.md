@@ -1,10 +1,10 @@
 # Unit Converter Tool
 
-Unit Converter is a Java-based application that allows users to convert various units like Temperature, Weight, Height, and Density from one unit to another. This program provides a user-friendly interface for performing conversions quickly.
+Unit Converter is a Java-based application that allows users to convert various quantities like Temperature, Weight, Height, and Density from one unit to another. This program provides a user-friendly interface for performing conversions quickly.
 
 ## Features
 
-- **Multiple Conversion Options:** Convert between different units, including Temperature, Weight, Height, Density, Speed etc.
+- **Multiple Conversion Options:** Convert between different units of quantities, including Temperature, Weight, Height, Density, Speed etc.
 
 - **User-Friendly Interface:** The program offers a simple and intuitive GUI for entering values and selecting conversion units.
 
@@ -26,6 +26,8 @@ https://github.com/fareedahb/ConverterProject.git
 1. Launch the Unit Converter application.
 
 2. Enter the value you want to convert in the input field.
+
+4. Select the quantity  of the value you want to convert in the dropdown. 
 
 3. Select the unit you want to convert from in the "From" dropdown.
 
