@@ -5,31 +5,44 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class UnitConverterApp {
+public class UnitConverterApp{
     private JFrame frame;
     private JPanel panel;
     private JTextField inputField;
+    private JComboBox<String> choiceComboBox;
     private JComboBox<String> fromUnitComboBox;
     private JComboBox<String> toUnitComboBox;
     private JButton convertButton;
     private JLabel resultLabel;
 
     public UnitConverterApp() {
+
         frame = new JFrame("Unit Converter");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 200);
 
         panel = new JPanel();
-        panel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        panel.setLayout(new GridLayout(4, 1));
 
+        JPanel panel2 = new JPanel(new FlowLayout(FlowLayout.LEFT));
         inputField = new JTextField(10);
-        fromUnitComboBox = new JComboBox<>(
-                new String[] { "Celsius", "Fahrenheit", "Kelvin", "Kilogram", "Gram", "Meter", "Feet", "Inch", "g/cm³",
-                        "Kg/m³", "lb/ft³", "m/s", "Km/hr", "mph" });
-        toUnitComboBox = new JComboBox<>(
-                new String[] { "Celsius", "Fahrenheit", "Kelvin", "Kilogram", "Gram", "Meter", "Feet", "Inch", "g/cm³",
-                        "Kg/m³", "lb/ft³", "m/s", "Km/hr", "mph" });
+
+        choiceComboBox = new JComboBox<>(new String[] { " -Choose- ","Temperature", "Weight", "Length", "Density", "Speed" });
+        choiceComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                updateUnitComboBoxes();
+            }
+        });
+
+        JPanel panel3 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        fromUnitComboBox = new JComboBox<>();
+
+        toUnitComboBox = new JComboBox<>();
+
+        JPanel panel4 = new JPanel(new FlowLayout(FlowLayout.LEFT));
         convertButton = new JButton("Convert");
+
         resultLabel = new JLabel("");
 
         convertButton.addActionListener(new ActionListener() {
@@ -39,15 +52,47 @@ public class UnitConverterApp {
             }
         });
 
-        panel.add(inputField);
-        panel.add(fromUnitComboBox);
-        panel.add(new JLabel("to"));
-        panel.add(toUnitComboBox);
-        panel.add(convertButton);
-        panel.add(resultLabel);
+        panel.add(panel2);
+        panel.add(panel3);
+        panel.add(panel4);
+        panel2.add(inputField);
+        panel2.add(choiceComboBox);
+        panel3.add(fromUnitComboBox);
+        panel3.add(new JLabel("to"));
+        panel3.add(toUnitComboBox);
+        panel4.add(convertButton);
+        panel4.add(resultLabel);
 
         frame.add(panel);
         frame.setVisible(true);
+    }
+
+    private void updateUnitComboBoxes() {
+        String choice = (String) choiceComboBox.getSelectedItem();
+        String[] units = getUnitsForChoice(choice);
+
+        DefaultComboBoxModel<String> fromUnitModel = new DefaultComboBoxModel<>(units);
+        fromUnitComboBox.setModel(fromUnitModel);
+
+        DefaultComboBoxModel<String> toUnitModel = new DefaultComboBoxModel<>(units);
+        toUnitComboBox.setModel(toUnitModel);
+    }
+
+    private String[] getUnitsForChoice(String choice) {
+        switch (choice) {
+            case "Temperature":
+                return new String[] { "Celsius", "Fahrenheit", "Kelvin" };
+            case "Weight":
+                return new String[] { "Kilogram", "Gram" };
+            case "Length":
+                return new String[] { "Meter", "Feet", "Inch" };
+            case "Density":
+                return new String[] { "g/cm³", "Kg/m³", "lb/ft³" };
+            case "Speed":
+                return new String[] { "m/s", "Km/hr", "mph" };
+            default:
+                return new String[0];
+        }
     }
 
     private void convert() {
