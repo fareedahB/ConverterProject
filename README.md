@@ -1,6 +1,6 @@
 # Unit Converter Tool Using Swing
 
-Unit Converter is a Java-based application using Swing GUI Toolkit that allows users to convert various quantities like Temperature, Weight, Height, and Density from one unit to another. This program provides a user-friendly interface for performing conversions quickly.
+Unit Converter is a Java-based application built using Swing GUI Toolkit that allows users to convert various quantities like Temperature, Weight, Height, and Density from one unit to another. This program provides a user-friendly interface for performing conversions quickly.
 
 ## Features
 
